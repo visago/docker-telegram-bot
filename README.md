@@ -34,8 +34,10 @@ $ TOKEN=XXXXX:XXXX USER_ID=XXXXX ./docker-telegram-bot
 You can build the docker image with the provided [Dockerfile](./Dockerfile) and run it with the docker socket mounted. (Or just use visago/docker-telegram-bot:latest)
 
 ```
-docker run -d -e TOKEN=XXXXX:XXXX -e USER_ID=XXXXX  -v /var/run/docker.sock:/var/run/docker.sock visago/docker-telegram-bot:latest
+docker run -d -e TOKEN=XXXXX:XXXX -e USER_ID=XXXXX -v /var/run/docker.sock:/var/run/docker.sock visago/docker-telegram-bot:latest
 ```
+
+There is a sample [docker-compose.yaml](docker-compose.yaml) file to use too
 
 ## Using the bot
 

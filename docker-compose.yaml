@@ -1,0 +1,10 @@
+name: linuxbox
+services:
+  docker-telegram-bot:
+    image: visago/docker-telegram-bot
+    environment:
+      - TOKEN=0000000:xxxxxxxxxx
+      - USER_ID=12345678
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

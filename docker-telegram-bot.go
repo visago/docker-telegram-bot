@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -199,6 +200,13 @@ func (db *DockerBot) handleList(detailed bool) string {
 	if len(containers) == 0 {
 		return "📦 No containers found"
 	}
+
+	// Sort containers by name
+	sort.Slice(containers, func(i, j int) bool {
+		nameI := strings.TrimPrefix(containers[i].Names[0], "/")
+		nameJ := strings.TrimPrefix(containers[j].Names[0], "/")
+		return strings.ToLower(nameI) < strings.ToLower(nameJ)
+	})
 
 	var response strings.Builder
 	response.WriteString("📦 *Docker Containers:*\n\n")
